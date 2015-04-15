@@ -36,7 +36,7 @@ Returns _false_ if request fails.
 $contacts = QuadernoContact::find();                    // Returns an array of QuadernoContact
 $contacts = QuadernoContact::find(array('page' => 2));  // Returns an array of QuadernoContact
 $contact = QuadernoContact::find('IDTOFIND');           // Returns a QuadernoContact
-$contact = QuadernoCustomer::find('CUSTOMER_STRIPE_ID');// Returns a QuadernoContact
+$contact = QuadernoContact::findByCustomerID('CUSTOMER_STRIPE_ID');// Returns a QuadernoContact
 ```
 
 #### Creating and updating a contact

@@ -10,5 +10,11 @@
 
 class QuadernoContact extends QuadernoModel {
 	static protected $model = 'contacts';
+        
+        public static function findByCustomerID($cutomer_id)
+	{
+                $model = 'stripe/customers';
+		return QuadernoBase::apiCall('GET', $model, $cutomer_id);
+	}
 }
 ?>
