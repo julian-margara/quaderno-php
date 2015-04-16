@@ -46,5 +46,10 @@ class QuadernoInvoice extends QuadernoDocument
                 }
                 return $return;
 	}
+        
+        public static function findLastInvoiceByContact($contact_id)
+	{
+            return end(self::findByContact($contact_id));
+	}
 }
 ?>
