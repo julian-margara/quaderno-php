@@ -67,6 +67,7 @@ A document is either an _invoice_, an _expense_, a _credit_ or an _estimate_.
 ```php
 $invoices = QuadernoInvoice::find();                      // Returns an array of QuadernoInvoice
 $invoices = QuadernoInvoice::find(array('page' => 2));    // Returns an array of QuadernoInvoice
+$invoices = QuadernoInvoice:findByContact('CONTACT_ID');  // Returns an array of QuadernoInvoice
 $invoice = QuadernoInvoice::find("IDTOFIND");             // Returns a QuadernoInvoice
 ```
 

@@ -31,5 +31,20 @@ class QuadernoInvoice extends QuadernoDocument
 	{
 		return $this->execRemovePayment($payment);
 	}
+        
+        public static function findByContact($contact_id)
+	{
+                $return = false;
+		$class = get_called_class();
+		$response = QuadernoBase::apiCall('GET', self::$model, '',array('contact'=>$contact_id));
+                if (QuadernoBase::responseIsValid($response))
+                {
+                        $return = array();
+                        $length = count($response['data']);
+                        for ($i = 0; $i < $length; $i++)
+                                $return[$i] = new $class($response['data'][$i]);
+                }
+                return $return;
+	}
 }
 ?>
