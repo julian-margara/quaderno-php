@@ -13,8 +13,12 @@ class QuadernoContact extends QuadernoModel {
         
         public static function findByCustomerID($cutomer_id)
 	{
+                $return = false;
+		$class = get_called_class();
                 $model = 'stripe/customers';
-		return QuadernoBase::apiCall('GET', $model, $cutomer_id);
+		$response = QuadernoBase::apiCall('GET', $model, $cutomer_id);
+                if (QuadernoBase::responseIsValid($response)) $return = new $class($response['data']);
+                return $return;
 	}
 }
 ?>
