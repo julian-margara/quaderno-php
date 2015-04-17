@@ -49,7 +49,12 @@ class QuadernoInvoice extends QuadernoDocument
         
         public static function findLastInvoiceByContact($contact_id)
 	{
-            return end(self::findByContact($contact_id));
+                $return = false;
+                $invoices = self::findByContact($contact_id);
+                if(is_array($invoices)){
+                    $return =  array_values($invoices)[0];
+                }
+                return $return;
 	}
 }
 ?>
