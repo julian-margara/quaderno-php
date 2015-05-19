@@ -56,5 +56,15 @@ class QuadernoInvoice extends QuadernoDocument
                 }
                 return $return;
 	}
+        
+        public static function findInvoiceByChargeId($charge_id)
+	{
+                $return = false;
+		$class = get_called_class();
+                $model = 'stripe/charges';
+		$response = QuadernoBase::apiCall('GET', $model, $charge_id);
+                if (QuadernoBase::responseIsValid($response)) $return = new $class($response['data']);
+                return $return;
+	}
 }
 ?>

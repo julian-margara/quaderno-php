@@ -69,6 +69,7 @@ $invoices = QuadernoInvoice::find();                      // Returns an array of
 $invoices = QuadernoInvoice::find(array('page' => 2));    // Returns an array of QuadernoInvoice
 $invoices = QuadernoInvoice:findByContact('CONTACT_ID');  // Returns an array of QuadernoInvoice
 $invoice = QuadernoInvoice::find("IDTOFIND");             // Returns a QuadernoInvoice
+$invoice = QuadernoInvoice::findInvoiceByChargeId('CHARGE_STRIPE_ID');// Returns a QuadernoInvoice
 ```
 
 Note: In order to looking up for number, contact name or P.O. number fields, you must set the 'q' param in the array param.
